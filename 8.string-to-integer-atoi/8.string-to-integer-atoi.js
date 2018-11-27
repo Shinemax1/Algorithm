@@ -87,6 +87,13 @@
  * @param {string} str
  * @return {number}
  */
-var myAtoi = function(str) {
-    
+var myAtoi = function (str) {
+  const num = parseInt(str.trim().split(' ')[0])
+  if (isNaN(num)) {
+    return 0
+  } else if (num < -2147483648 || num > 2147483647) {
+    return num < 0 ? -2147483648 : 2147483647
+  } else {
+    return num
+  }
 };
