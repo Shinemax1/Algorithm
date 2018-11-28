@@ -48,6 +48,16 @@
  * @param {number} x
  * @return {boolean}
  */
-var isPalindrome = function(x) {
-    
+var isPalindrome = function (x) {
+  if (x < 0) return false
+  x += ''
+  let len = x.length
+  let i = 0
+  while (i < ~~(len / 2)) {
+    if (x[i] !== x[len - i - 1]) {
+      return false
+    }
+    i++
+  }
+  return true
 };
