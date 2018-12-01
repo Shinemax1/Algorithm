@@ -87,5 +87,7 @@
  * @return {boolean}
  */
 var isMatch = function(s, p) {
-    
+  let reg = `^${p}$`
+  return new RegExp(reg).test(s)
 };
+
