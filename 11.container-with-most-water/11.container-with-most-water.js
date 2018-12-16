@@ -35,11 +35,47 @@
  * Input: [1,8,6,2,5,4,8,3,7]
  * Output: 49
  * 
+ * Input: [1,1,1,2,1,1,2]
+ * Output: 6
+ * 
  */
 /**
  * @param {number[]} height
  * @return {number}
  */
-var maxArea = function(height) {
-    
+// var maxArea = function (height) {
+//   let i = 0,
+//     max = 0,
+//     j = 0,
+//     fn = (i) => {
+//       let arr = height.slice(i + 1)
+//       j = arr.indexOf(Math.max(height[i], ...arr))
+//       if (height[i] === arr[j]) {
+//         j = arr.lastIndexOf(arr[j])
+//       } else if (j === -1) {
+//         j = arr.length - 1
+//       }
+//       max = Math.max(max, (j + 1) * Math.min(height[i], arr[j]))
+//       return j + i + 1
+//     }
+
+//   while (i < height.length - 1) {
+//     i = fn(i)
+//   }
+//   return max
+// };
+// console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]))
+var maxArea = function (height) {
+  let i = 0,
+    max = 0,
+    k = height.length - 1
+  while (i < k) {
+    max = Math.max(max, Math.min(height[i], height[k]) * (k - i))
+    if(height[i] < height[k]){
+      i++
+    }else{
+      k--
+    }
+  }
+  return max
 };
